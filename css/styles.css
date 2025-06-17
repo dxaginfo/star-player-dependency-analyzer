@@ -1,0 +1,163 @@
+/* 
+ * Star Player Dependency Analyzer
+ * Custom CSS Styles
+ */
+
+:root {
+    --primary: #0d6efd;
+    --secondary: #6c757d;
+    --success: #198754;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #0dcaf0;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --high-dependency: #dc3545;
+    --medium-dependency: #ffc107;
+    --low-dependency: #198754;
+}
+
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Section Navigation */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Dependency Visualization */
+.dependency-meter {
+    height: 20px;
+    background: linear-gradient(to right, var(--low-dependency), var(--medium-dependency), var(--high-dependency));
+    border-radius: 10px;
+    position: relative;
+}
+
+.dependency-marker {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: var(--dark);
+    top: -5px;
+    border-radius: 5px;
+}
+
+/* Risk Indicators */
+.risk-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.risk-indicator.high {
+    background-color: var(--high-dependency);
+}
+
+.risk-indicator.medium {
+    background-color: var(--medium-dependency);
+}
+
+.risk-indicator.low {
+    background-color: var(--low-dependency);
+}
+
+/* Assessment Form Styling */
+.assessment-area {
+    border-left: 4px solid var(--primary);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.rating-cell {
+    width: 75px;
+    text-align: center;
+}
+
+/* Player Card Styling */
+.player-card {
+    transition: all 0.3s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.player-card.high-risk {
+    border-left: 5px solid var(--high-dependency);
+}
+
+.player-card.medium-risk {
+    border-left: 5px solid var(--medium-dependency);
+}
+
+.player-card.low-risk {
+    border-left: 5px solid var(--low-dependency);
+}
+
+/* Recommendations styling */
+.recommendation-card {
+    margin-bottom: 1.5rem;
+}
+
+.player-name {
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}
+
+/* Print styling for reports */
+@media print {
+    .navbar, 
+    .btn, 
+    footer, 
+    .no-print {
+        display: none !important;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .card {
+        border: 1px solid #ddd;
+        box-shadow: none !important;
+    }
+    
+    .section {
+        display: block !important;
+        page-break-after: always;
+    }
+}
